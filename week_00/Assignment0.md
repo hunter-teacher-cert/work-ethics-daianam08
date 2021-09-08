@@ -1,6 +1,11 @@
+# NOTES TO SELF
+
 article link: https://www.npr.org/2021/08/21/1030038616/facebooks-most-viewed-article-in-early-2021-raised-doubt-about-covid-vaccine
 
 file link: https://docs.google.com/document/d/1f5VmmriEmcjGx6PKtvRQ2X_a-9dpU1KLQH_IVg0uTOs/edit
+
+practice python link:
+https://replit.com/@daianam08/practice-python#main.py
 
 ~~~~~~~~~~~~~~~
 Async week 0
