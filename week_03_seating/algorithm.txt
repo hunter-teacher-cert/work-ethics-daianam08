@@ -1,0 +1,13 @@
+Week 03
+Daiana Munoz
+Algorithm
+
+Assignment Decription- Write up a description of your algorithm as a pdf file and store it in the folder under the name algorithm.pdf. If you can't implement it fully, describe in the comments what you couldn't do due to either time or complexity.
+
+  I worked with a few classmates on the finished code. We looked it over to understand the code in general and then worked our way through to see what was possible to change given the time we had and our limited knowledge of python.
+  
+  We ended up just creating code that kept the random seating for both economy and economy plus. Economy plus still had a 70% chance of getting a window seat and after all the economy plus seats were filled, the remained was filled in for the regular economy members. I wanted to add an option to unseat an economy plus member to fit family together but since the plane was filled at random, it seemed it didn't matter if I created that option. Consequently, I did now know how I would have added an unseating option. My classmates also mentioned that it would be inequitable to unseat someone who paid more for their seat.
+
+  We added some code towards the end to seperate the values from the keys so it would be easier to know how many tickets were issued to each pod. After we extracted tat information, we assigned seats based on the pods, only assigning avail seats and no window seats. Since we wanted families to stay together, and it was tougher to get window seats AND keeping families together, we ended up not giving regular economy window seats unless they were traveling alone (thus reusing the random seat generator used for economy plus members. This is how some regular economy members ended up with a window seat in some iterations.)
+
+  This example is more equitable because families of 3 or less can sit together, even though they do not get a chance at a window seat. In real life, they can kindly ask and see if they could switch seats.
