@@ -152,7 +152,7 @@ def purchase_economy_block(plane,economy_sold,number,name):
     economy_sold dictionary and return the new dictionary
 
     """
-    seats_avail = get_total_seats(plane)
+    seats_avail = get_avail_seats(plane,economy_sold)
     seats_avail = seats_avail - get_number_economy_sold(economy_sold)
 
     if seats_avail >= number:
@@ -185,7 +185,7 @@ def fill_plane(plane):
     # regular economy size
 
     max_family_size = 3
-    while total_seats > 1:
+    while total_seats > 0:
         r = random.randrange(100)
         if r > 30:
             plane = purchase_economy_plus(plane,economy_sold,"ep-%d"%ep_number)
@@ -194,6 +194,7 @@ def fill_plane(plane):
         else:
             economy_sold = purchase_economy_block(plane,economy_sold,1+random.randrange(max_family_size),"u-%d"%u_number)
             u_number = u_number + 1
+            total_seats = get_avail_seats(plane,economy_sold)
 
         
     # once the plane reaches a certian seating capacity, assign
@@ -203,7 +204,47 @@ def fill_plane(plane):
     for name in economy_sold.keys():
         for i in range(economy_sold[name]):
             plane = seat_economy(plane,economy_sold,name)
+    print(economy_sold)
 
+    economyPlusStore=[]
+    for row in plane:
+      for item in row[1:-1]:
+        if item[0]=='e':
+          economyPlusStore.append(item)
+    print(economyPlusStore)
+    
+    economyRegList=[]
+    for key, val in economy_sold.items():
+      economyRegList.append((val,key))
+    economyRegList.sort(reverse=True)
+    print(economyRegList)
+    
+    # rowHere is where youre putting the people
+    rowHere=0
+    for key,val in economyRegList:
+      if key==3:
+        plane[rowHere][1]=val
+        plane[rowHere][2]=val
+        plane[rowHere][3]=val
+        rowHere= rowHere + 1
+      if key==2:
+        plane[rowHere][1]=val
+        plane[rowHere][2]=val
+        plane[rowHere][3]= "avail"
+        rowHere= rowHere + 1
+      if key==1:
+        economyPlusStore.append(val)
+
+    for row in range(len(plane)):
+      if row >= rowHere :
+        plane[row][1] = "avail"
+        plane[row][2] = "avail"
+        plane[row][3] = "avail"
+
+    print(economyPlusStore)
+    
+    for passenger in economyPlusStore:
+      plane = seat_economy(plane,economy_sold,passenger)
 
     return plane
     
@@ -211,6 +252,7 @@ def fill_plane(plane):
     
 def main():
     plane = create_plane(10,5)
+    print(get_plane_string(plane))
     plane = fill_plane(plane)
     print(get_plane_string(plane))
 if __name__=="__main__":
