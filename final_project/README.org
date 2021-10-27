@@ -4,3 +4,15 @@ Add your final project files here. Remember
 - You must have a pdf file with your actual submission
 - You can add other files as needed (in any format you'd like)
 - Every participant must upload the same pdf file
+
+Write up in an .md or .pdf file (I'd prefer .md) a proposal for what
+you want to do for your final project. The project is to be done by
+groups of two (and one group of 3).
+Include:
+1. The names of the participants.
+2. A description of the issue you are going to tackle
+3. A description of how you will provide a program as part of the
+   project (which can be in any language, even untraditional ones like
+   using a spreadsheet for data analysis)
+Make sure that all group members have a copy of this file in their
+repo.
